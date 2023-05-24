@@ -5,8 +5,12 @@ pub fn main() -> iced::Result {
     Counter::run(Settings::default())
 }
 
+// // // // // //
+// -- Model -- //
+// // // // // //
+
 struct Counter {
-    value: i32,
+    value: i8,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -23,7 +27,7 @@ impl Sandbox for Counter {
     }
 
     fn title(&self) -> String {
-        String::from("Counter - Iced")
+        String::from("raa: Counter - Iced")
     }
 
     fn update(&mut self, message: Message) {
@@ -39,12 +43,14 @@ impl Sandbox for Counter {
 
     fn view(&self) -> Element<Message> {
         column![
-            button("Increment").on_press(Message::IncrementPressed),
+            button("Increment <>").on_press(Message::IncrementPressed),
             text(self.value).size(50),
-            button("Decrement").on_press(Message::DecrementPressed)
+            button("Decrement <>").on_press(Message::DecrementPressed)
         ]
         .padding(20)
         .align_items(Alignment::Center)
         .into()
     }
 }
+
+
